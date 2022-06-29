@@ -19,12 +19,14 @@ button {
     left: 50%;
     transform: translate(-50%, -55%);
 }
-#buttons{
+
+#buttons {
     position: absolute;
     top: 55%;
     left: 48.4%;
     transform: translate(-51.6 -45%);
 }
+
 #button li {
     display: inline;
     padding-left: 10px;
