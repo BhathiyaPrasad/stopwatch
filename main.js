@@ -1,57 +1,64 @@
-const timer = document.getElementById('stopwatch')
+const timer = document.getElementById("stopwatch");
 var hr = 0;
 var min = 0;
 var sec = 0;
-var stoptime = true;
+var stoptime = false;
 
 function startTimer() {
-    if (stoptime == true) {
-        stoptime = false;
-        timerCycle();
-
-    }
+  if (stoptime == true) {
+    stoptime = false;
+    timerCycle();
+  }
 }
 
 function stopTimer() {
-    if (stoptime == false) {
-        stoptime = true;
-    }
+  if (stoptime == false) {
+    stoptime = true;
+  }
 }
 
 function timerCycle() {
-    if (stoptime == false) {
-        sec = parseInt
-        min = parseInt(sec);
-        hr = parseInt(hr);
+  setInterval(function () {
+    console.log("Timer Running");
+  }, 1000);
 
-        sec = sec + 1;
+  if (stoptime == false) {
+    console.log("Timer Running");
 
-        if (sec == 60) {
-            {
-                min = min + 1;
-                sec = 0;
-            }
-            if (min == 60) {
-                hr = hr + 1;
-                min = 0
-                sec = 0;
-            }
+    sec = parseInt(sec);
+    min = parseInt(min);
+    hr = parseInt(hr);
 
-            if (sec < 10 || sec == 0) {
-                sec = '0' + sec;
-            }
-            if (min < 10 || min == 0) {
-                min = '0' + min;
-            }
-            if (hr < 10 || hr == 0) {
-                hr = '0' + hr;
-            }
+    sec = sec + 1;
 
-            timer.innerHTML = hr + ':' + sec;
+    if (sec == 60) {
+      {
+        min = min + 1;
+        sec = 0;
+      }
+      if (min == 60) {
+        hr = hr + 1;
+        min = 0;
+        sec = 0;
+      }
 
-            setTimeout("timerCycle()", 1000);
-        }
+      if (sec < 10 || sec == 0) {
+        sec = "0" + sec;
+      }
+      if (min < 10 || min == 0) {
+        min = "0" + min;
+      }
+      if (hr < 10 || hr == 0) {
+        hr = "0" + hr;
+      }
 
-        function resetTimer() {
-            timer.innerHTML = '00.00.00';
-        }
+      timer.innerHTML = hr + ":" + sec;
+
+      setInterval(timerCycle(), 1000);
+    }
+  }
+}
+
+function resetTimer() {
+  timer.innerHTML = "00.00.00";
+}
